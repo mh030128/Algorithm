@@ -1,11 +1,13 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-        Scanner scanner = new Scanner(System.in);
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
-        char c = scanner.next().charAt(0);
+        char c = bufferedReader.readLine().charAt(0);
 
         System.out.println((int) c);
     }
