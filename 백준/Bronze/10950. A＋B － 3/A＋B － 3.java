@@ -1,15 +1,23 @@
 import java.util.Scanner;
 
 public class Main {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) {
 
-		int t = sc.nextInt();
-		
-		for(int i=1; i<=t; i++) {
-			int a = sc.nextInt();
-			int b = sc.nextInt();
-			System.out.println(a + b);
-		}
-	}
+        Scanner scanner = new Scanner(System.in);
+
+        int totalNum = scanner.nextInt();
+        int array[] = new int[totalNum];
+
+
+        for(int i = 0; i < totalNum; i++) {
+            int num1 = scanner.nextInt();
+            int num2 = scanner.nextInt();
+            array[i] = num1 + num2;
+        }
+
+        for(int i = 0; i < array.length; i++) {
+            System.out.println(array[i]);
+        }
+
+    }
 }
