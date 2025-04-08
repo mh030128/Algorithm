@@ -1,15 +1,19 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Main {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
 
-		int number = sc.nextInt();
-		int sum = 0;
-		
-		for(int i=1; i<=number; i++) {
-			sum += i;
-		}
-		System.out.println(sum);
-	}
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int num = Integer.parseInt(br.readLine());
+        int sum = 0;
+
+        for(int i = 1; i <= num; i++) {
+            sum += i;
+        }
+        System.out.println(sum);
+
+    }
 }
