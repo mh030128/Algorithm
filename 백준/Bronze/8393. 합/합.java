@@ -7,13 +7,9 @@ public class Main {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        int num = Integer.parseInt(br.readLine());
-        int sum = 0;
-
-        for(int i = 1; i <= num; i++) {
-            sum += i;
-        }
+        int num, sum;
+        num = Integer.parseInt(br.readLine());
+        sum = (num * (num + 1)) / 2;
         System.out.println(sum);
-
     }
 }
