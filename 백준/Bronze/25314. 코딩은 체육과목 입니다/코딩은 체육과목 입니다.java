@@ -5,15 +5,19 @@ import java.io.InputStreamReader;
 public class Main {
     public static void main(String[] args) throws IOException {
 
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        final int BYTES_PER_LONG = 4;
 
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int num = Integer.parseInt(br.readLine());
+
+        int repeat = num / BYTES_PER_LONG;
 
         StringBuilder sb = new StringBuilder();
 
-        for(int i = 1; i <= num/4; i++) {
+        for(int i = 0; i < repeat; i++) {
             sb.append("long ");
         }
-        System.out.println(sb + "int");
+        sb.append("int");
+        System.out.println(sb);
     }
 }
