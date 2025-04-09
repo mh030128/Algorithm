@@ -1,20 +1,26 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-        Scanner scanner = new Scanner(System.in);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int num = Integer.parseInt(br.readLine());
 
-        int num = scanner.nextInt();
+        StringBuilder sb = new StringBuilder();
 
         for(int i = 0; i < num; i++) {
-            for(int j = 0; j < num - i - 1; j++) {
-                System.out.print(" ");
+            for(int j = 0; j < num - i -1; j++) {
+                sb.append(" ");
             }
             for(int k = 0; k <= i; k++) {
-                System.out.print("*");
+                sb.append("*");
             }
-            System.out.println();
+            sb.append("\n");
         }
+        String star = sb.toString();
+        System.out.println(star);
+        br.close();
     }
 }
