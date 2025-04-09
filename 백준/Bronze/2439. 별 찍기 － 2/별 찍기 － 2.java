@@ -1,22 +1,20 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.util.Scanner;
 
 public class Main {
-	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		int n = Integer.parseInt(br.readLine());
-		br.close();
-		
-		
-		for(int i=1; i<=n; i++) {
-			for(int j=1; j<=n-i; j++) {
-				System.out.print(" ");
-			}
-			for(int k=1; k<=i; k++) {
-				System.out.printf("*");
-			}
-			System.out.println();
-		}
-	}
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        int num = scanner.nextInt();
+
+        for(int i = 0; i < num; i++) {
+            for(int j = 0; j < num - i - 1; j++) {
+                System.out.print(" ");
+            }
+            for(int k = 0; k <= i; k++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
 }
