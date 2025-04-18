@@ -1,27 +1,34 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-        Scanner scanner = new Scanner(System.in);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        StringBuilder sb = new StringBuilder();
 
-        int N = scanner.nextInt();  // 바구니 수
-        int M = scanner.nextInt();  // 공 넣기 횟수
-
+        int N = Integer.parseInt(st.nextToken());
+        int M = Integer.parseInt(st.nextToken());
         int basket[] = new int[N];
 
+
         for(int m = 0; m < M; m++) {
-            int i = scanner.nextInt();
-            int j = scanner.nextInt();
-            int k = scanner.nextInt();
+            st = new StringTokenizer(br.readLine());
+            int i = Integer.parseInt(st.nextToken());
+            int j = Integer.parseInt(st.nextToken());
+            int k = Integer.parseInt(st.nextToken());
 
             for(int b = i - 1; b <= j - 1; b++) {
                 basket[b] = k;
             }
         }
         for (int result : basket) {
-            System.out.print(result + " ");
+            sb.append(result).append(" ");
         }
-        scanner.close();
+        System.out.println(sb);
+        br.close();
     }
 }
