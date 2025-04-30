@@ -7,31 +7,35 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        int basketNum = Integer.parseInt(st.nextToken());
-        int[] basket = new int[basketNum];
-        int inverseNum = Integer.parseInt(st.nextToken());
+        StringTokenizer st;
+        StringBuilder sb = new StringBuilder();
 
-        for(int i = 0; i < basket.length; i++) {
-            basket[i] = i + 1;
+        st = new StringTokenizer(br.readLine());
+        int basketNum = Integer.parseInt(st.nextToken());
+        int inverseNum = Integer.parseInt(st.nextToken());
+        int[] baskets = new int[basketNum + 1];
+
+        for(int i = 1; i < baskets.length; i++) {
+            baskets[i] = i;
         }
 
         for(int i = 0; i < inverseNum; i++) {
             st = new StringTokenizer(br.readLine());
-            int num1 = Integer.parseInt(st.nextToken()) - 1;
-            int num2 = Integer.parseInt(st.nextToken()) - 1;
+            int num1 = Integer.parseInt(st.nextToken());
+            int num2 = Integer.parseInt(st.nextToken());
 
             while(num1 < num2) {
-                int temp = basket[num1];
-                basket[num1] = basket[num2];
-                basket[num2] = temp;
+                int temp = baskets[num1];
+                baskets[num1] = baskets[num2];
+                baskets[num2] = temp;
 
                 num1++;
                 num2--;
             }
         }
-        for(int i = 0; i < basket.length; i++) {
-            System.out.print(basket[i] + " ");
+        for(int i = 1; i < baskets.length; i++) {
+            sb.append(baskets[i]).append(" ");
         }
+        System.out.println(sb);
     }
 }
