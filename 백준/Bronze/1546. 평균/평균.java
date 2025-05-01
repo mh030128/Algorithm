@@ -1,34 +1,40 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-        Scanner scanner = new Scanner(System.in);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st;
 
-        int totalSubject = scanner.nextInt();
-        int[] scores = new int[totalSubject];
-        double[] changeScores = new double[totalSubject];
-        double sum = 0;
-        double avg = 0;
+        st = new StringTokenizer(br.readLine());
+        int subjects = Integer.parseInt(st.nextToken());
+        int[] scores = new int[subjects];
+        // double[] changeScores = new double[subjects];
 
-        for(int i = 0; i < totalSubject; i++) {
-            scores[i] = scanner.nextInt();
+        // 점수입력
+        st = new StringTokenizer(br.readLine());
+        for(int i = 0; i < subjects; i++) {
+            scores[i] = Integer.parseInt(st.nextToken());
         }
 
         // 최대값 구하기
         int M = scores[0];
-        for(int i = 1; i < totalSubject; i++) {
-
+        for(int i = 1; i < subjects; i++) {
             if(scores[i] > M) {
                 M = scores[i];
             }
         }
 
-        for(int i = 0; i < totalSubject; i++) {
-            changeScores[i] = ((double)scores[i] / M) * 100;
-            sum += (double) changeScores[i];
-            avg = (double) (sum / totalSubject);
+        // 새로운 점수로 평균 구하기
+        double sum = 0;
+        for(int i = 0; i < subjects; i++) {
+            sum += (double) scores[i] / M * 100;
         }
+
+        double avg = sum / subjects;
         System.out.println(avg);
     }
 }
