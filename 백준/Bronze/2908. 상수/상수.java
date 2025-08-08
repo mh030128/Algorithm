@@ -1,20 +1,17 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
 
-        Scanner scanner = new Scanner(System.in);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        String num1 = scanner.next();
-        String num2 = scanner.next();
+        String[] str = br.readLine().split(" ");
+        br.close();
 
-        String reverseNum1 = new StringBuilder(num1).reverse().toString();
-        String reverseNum2 = new StringBuilder(num2).reverse().toString();
+        int num1 = Integer.parseInt(new StringBuilder().append(str[0]).reverse().toString());
+        int num2 = Integer.parseInt(new StringBuilder().append(str[1]).reverse().toString());
 
-        // 뒤집은 문자열 정수로 변환
-        int nnum1 = Integer.parseInt(reverseNum1);
-        int nnum2 = Integer.parseInt(reverseNum2);
-
-        System.out.println(Math.max(nnum1, nnum2));
+        System.out.println(Math.max(num1, num2));
     }
 }
