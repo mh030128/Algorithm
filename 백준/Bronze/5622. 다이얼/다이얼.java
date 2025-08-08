@@ -1,43 +1,30 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
-        Scanner scanner = new Scanner(System.in);
-        String input = scanner.next();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
+        String input = br.readLine();
         int total = 0;
 
-        for(int i = 0; i <input.length(); i++) {
-            char ch = input.charAt(i);
-
-            switch (ch) {
-                case 'A': case 'B': case 'C':
-                    total += 3;
-                    break;
-                case 'D': case 'E': case 'F':
-                    total += 4;
-                    break;
-                case 'G': case 'H': case 'I':
-                    total += 5;
-                    break;
-                case 'J': case 'K': case 'L':
-                    total += 6;
-                    break;
-                case 'M': case 'N': case 'O':
-                    total += 7;
-                    break;
-                case 'P': case 'Q': case 'R': case'S':
-                    total += 8;
-                    break;
-                case 'T': case 'U': case 'V':
-                    total += 9;
-                    break;
-                case 'W': case 'X': case 'Y': case 'Z':
-                    total += 10;
-                    break;
-            }
+        for (int i = 0; i < input.length(); i++) {
+            total += dial(input.charAt(i));
         }
         System.out.println(total);
+    }
+
+    private static int dial(int ASCII) {
+        if (ASCII >= 'A' && ASCII <= 'C') return 3;
+        if (ASCII <= 'F') return 4;
+        if (ASCII <= 'I') return 5;
+        if (ASCII <= 'L') return 6;
+        if (ASCII <= 'O') return 7;
+        if (ASCII <= 'S') return 8;
+        if (ASCII <= 'V') return 9;
+        if (ASCII <= 'Z') return 10;
+
+        return 0;
     }
 }
