@@ -7,18 +7,17 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
         StringTokenizer st;
 
-        int[] correct = {1, 1, 2, 2, 2, 8};
+        int[] chess = {1, 1, 2, 2, 2, 8};
         int[] input = new int[6];
 
         st = new StringTokenizer(br.readLine());
         for(int i = 0; i < input.length; i++) {
-            input[i] = Integer.parseInt(st.nextToken());
+            input[i] = chess[i] - Integer.parseInt(st.nextToken());
+            sb.append(input[i]).append(" ");
         }
-
-        for(int i = 0; i < input.length; i++) {
-            System.out.print((correct[i] - input[i]) + " ");
-        }
+        System.out.println(sb);
     }
 }
