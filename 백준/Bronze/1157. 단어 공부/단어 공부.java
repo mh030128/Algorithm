@@ -1,26 +1,27 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-        Scanner scanner = new Scanner(System.in);
-        String word = scanner.next().toUpperCase(); // 대문자로 변환
-
-        int[] count = new int[26];    // A-Z 알파벳개수 저장
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String word = br.readLine().toUpperCase();
+        int[] alpha = new int[26];
 
         for(int i = 0; i < word.length(); i++) {
             char ch = word.charAt(i);
-            count[ch - 'A']++;
+            alpha[ch - 'A']++;
         }
 
         int max = -1;
         char result = '?';
 
-        for(int i = 0; i < count.length; i++) {
-            if(count[i] > max) {
-                max = count[i];
+        for(int i = 0; i < alpha.length; i++) {
+            if(alpha[i] > max) {
+                max = alpha[i];
                 result = (char)(i + 'A');
-            } else if (count[i] == max) {
+            } else if (alpha[i] == max) {
                 result = '?';
             }
         }
