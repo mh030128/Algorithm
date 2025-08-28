@@ -1,11 +1,13 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-        Scanner scanner = new Scanner(System.in);
-        String word = scanner.nextLine();
-        String[] croatia = new String[]{"c=", "c-", "dz=", "d-", "lj", "nj", "s=", "z="};
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String word = br.readLine();
+        String[] croatia = {"c=", "c-", "dz=", "d-", "lj", "nj", "s=", "z="};
 
         for (String pattern : croatia) {
             word = word.replace(pattern, "#");
