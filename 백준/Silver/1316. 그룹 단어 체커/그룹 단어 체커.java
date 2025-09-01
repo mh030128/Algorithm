@@ -3,35 +3,35 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Main {
+
+    public static boolean isGroupWord(String word) {
+        boolean groupWord = true;   /* 입력받은 단어가 그룹단어라고 가정 */
+
+        for(int i = 0; i < word.length()-1; i++) {
+            if(word.charAt(i) != word.charAt(i+1)) {
+                for(int j = i + 1; j < word.length(); j++) {
+                    if(word.charAt(i) == word.charAt(j)) {
+                        groupWord = false;
+                    }
+                }
+            }
+        }
+        return groupWord;
+    }
+
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
         int n = Integer.parseInt(br.readLine());
+        String[] word = new String[n];
         int count = 0;
 
-        for(int i = 0 ; i < n; i++) {
-            String word = br.readLine();
-            if(isGroupWord(word)) {
+        for(int i = 0; i < n; i++) {
+            if(isGroupWord(br.readLine())) {
                 count++;
             }
         }
         System.out.println(count);
-    }
-    
-    public static boolean isGroupWord(String word) {
-        boolean[] visit = new boolean[26];
-        char prev = 0;
-
-        for(int i = 0; i < word.length(); i++) {
-            char ch = word.charAt(i);
-            if(ch != prev) {
-                if(visit[ch - 'a']) {
-                    return false;
-                }
-                visit[ch - 'a'] = true;
-            }
-            prev = ch;
-        }
-        return true;
     }
 }
