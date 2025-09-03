@@ -8,35 +8,26 @@ public class Main {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
+        StringBuilder sb = new StringBuilder();
 
         st = new StringTokenizer(br.readLine());
-        int n = Integer.parseInt(st.nextToken());
-        int m = Integer.parseInt(st.nextToken());
+        int N = Integer.parseInt(st.nextToken());
+        int M = Integer.parseInt(st.nextToken());
 
-        int[][] arrA = new int[n][m];   /* 첫 번째 행렬 */
-        int[][] arrB = new int[n][m];   /* 두 번째 행렬 */
+        int[][] result = new int[N][M];
 
-        /* 첫 번째 행렬 원소 */
-        for(int i = 0; i < arrA.length; i++) {
-            st = new StringTokenizer(br.readLine());
-            for(int j = 0; j < arrA[i].length; j++) {
-                arrA[i][j] = Integer.parseInt(st.nextToken());
-            }
-        }
-        
-        /* 두 번째 행렬 원소 */
-        for(int i = 0; i < arrB.length; i++) {
-            st = new StringTokenizer(br.readLine());
-            for(int j = 0; j < arrB[i].length; j++) {
-                arrB[i][j] = Integer.parseInt(st.nextToken());
+        for(int m = 0; m < 2; m++) {    /* 행렬A, 행렬B가 있으므로 총 2번 도는 것을 의미 */
+            for(int i = 0; i < result.length; i++) {
+                st = new StringTokenizer(br.readLine());
+                for(int j = 0; j < result[0].length; j++) {
+                    result[i][j] += Integer.parseInt(st.nextToken());
+                }
             }
         }
 
-        /* 두 행렬 더하기 */
-        StringBuilder sb = new StringBuilder();
-        for(int i = 0; i < arrA.length; i++) {
-            for(int j = 0; j < arrA[0].length; j++) {
-                sb.append(arrA[i][j] + arrB[i][j]).append(" ");
+        for(int i = 0; i < result.length; i++) {
+            for(int j = 0; j < result[0].length; j++) {
+                sb.append(result[i][j]).append(" ");
             }
             sb.append("\n");
         }
