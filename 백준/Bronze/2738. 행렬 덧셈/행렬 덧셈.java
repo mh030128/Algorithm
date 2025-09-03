@@ -1,35 +1,45 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-        Scanner scanner = new Scanner(System.in);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st;
 
-        int n = scanner.nextInt();
-        int m = scanner.nextInt();
+        st = new StringTokenizer(br.readLine());
+        int n = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
 
-        int[][] arrA = new int[n][m];
-        int[][] arrB = new int[n][m];
-        int[][] result = new int[arrA.length][arrA[0].length];
+        int[][] arrA = new int[n][m];   /* 첫 번째 행렬 */
+        int[][] arrB = new int[n][m];   /* 두 번째 행렬 */
 
+        /* 첫 번째 행렬 원소 */
         for(int i = 0; i < arrA.length; i++) {
+            st = new StringTokenizer(br.readLine());
             for(int j = 0; j < arrA[i].length; j++) {
-                arrA[i][j] = scanner.nextInt();
+                arrA[i][j] = Integer.parseInt(st.nextToken());
             }
         }
-
+        
+        /* 두 번째 행렬 원소 */
         for(int i = 0; i < arrB.length; i++) {
+            st = new StringTokenizer(br.readLine());
             for(int j = 0; j < arrB[i].length; j++) {
-                arrB[i][j] = scanner.nextInt();
+                arrB[i][j] = Integer.parseInt(st.nextToken());
             }
         }
 
-        for(int i = 0; i < result.length; i++) {
-            for(int j = 0; j < result[i].length; j++) {
-                result[i][j] = arrA[i][j] + arrB[i][j];
-                System.out.print(result[i][j] + " ");
+        /* 두 행렬 더하기 */
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0; i < arrA.length; i++) {
+            for(int j = 0; j < arrA[0].length; j++) {
+                sb.append(arrA[i][j] + arrB[i][j]).append(" ");
             }
-            System.out.println();
+            sb.append("\n");
         }
+        System.out.println(sb);
     }
 }
