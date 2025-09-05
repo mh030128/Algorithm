@@ -1,17 +1,23 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-        Scanner scanner = new Scanner(System.in);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
 
         int[][] arr = new int[9][9];
+
         int max = 0;
-        int x = 1, y = 1;   /* 1행 1열이 나와야 하기 때문 */
+        int x = 1, y = 1;
 
         for(int i = 0; i < arr.length; i++) {
-            for(int j = 0; j < arr[0].length; j++) {
-                arr[i][j] = scanner.nextInt();
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            for(int j = 0; j <arr[0].length; j++) {
+                arr[i][j] = Integer.parseInt(st.nextToken());
             }
         }
 
@@ -24,7 +30,7 @@ public class Main {
                 }
             }
         }
-        System.out.println(max);
-        System.out.println(x + " " + y);
+        sb.append(max).append("\n").append(x).append(" ").append(y);
+        System.out.println(sb);
     }
 }
