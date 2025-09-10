@@ -7,26 +7,25 @@ public class Main {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
-        String[] arr = new String[5];
-
-        for(int i = 0; i < arr.length; i++) {
-            arr[i] = br.readLine();
-        }
-
+        char[][] arr = new char[5][15];
         int maxLen = 0;
+
         for(int i = 0; i < arr.length; i++) {
-            if(arr[i].length() > maxLen) {
-                maxLen = arr[i].length();
+            String str = br.readLine();
+
+            for(int j = 0; j < str.length(); j++) {
+                arr[i][j] = str.charAt(j);
             }
+            maxLen = Math.max(maxLen, str.length());
         }
 
         for(int i = 0; i < maxLen; i++) {
             for(int j = 0; j < 5; j++) {
-                if(i < arr[j].length()) {
-                    sb.append(arr[j].charAt(i));
+                if(arr[j][i] != '\0') {
+                    sb.append(arr[j][i]);
                 }
             }
         }
-        System.out.println(sb);
+        System.out.println(sb.toString());
     }
 }
