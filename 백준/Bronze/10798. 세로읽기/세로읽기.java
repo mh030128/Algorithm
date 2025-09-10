@@ -1,13 +1,18 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-        Scanner scanner = new Scanner(System.in);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
         String[] arr = new String[5];
 
         for(int i = 0; i < arr.length; i++) {
-            arr[i] = scanner.nextLine();
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            arr[i] = st.nextToken();
         }
 
         int maxLen = 0;
@@ -20,9 +25,10 @@ public class Main {
         for(int i = 0; i < maxLen; i++) {
             for(int j = 0; j < 5; j++) {
                 if(i < arr[j].length()) {
-                    System.out.print(arr[j].charAt(i));
+                    sb.append(arr[j].charAt(i));
                 }
             }
         }
+        System.out.println(sb);
     }
 }
