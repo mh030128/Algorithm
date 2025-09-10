@@ -1,7 +1,6 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.StringTokenizer;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -11,8 +10,7 @@ public class Main {
         String[] arr = new String[5];
 
         for(int i = 0; i < arr.length; i++) {
-            StringTokenizer st = new StringTokenizer(br.readLine());
-            arr[i] = st.nextToken();
+            arr[i] = br.readLine();
         }
 
         int maxLen = 0;
