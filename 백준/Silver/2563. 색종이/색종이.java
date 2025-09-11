@@ -1,17 +1,23 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-        Scanner scanner = new Scanner(System.in);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        StringBuilder sb = new StringBuilder();
 
-        int num = scanner.nextInt();    /* 색종이 개수 */
-        int[][] paper = new int[100][100];  /*100 x 100 크기 */
+        int n = Integer.parseInt(st.nextToken());
+        int[][] paper = new int[100][100];
         int area = 0;
 
-        for(int i = 0; i < num; i++) {  /* 좌측 하단 모서리 좌표 */
-            int x = scanner.nextInt();
-            int y = scanner.nextInt();
+        for(int i = 0; i < n; i++) {
+            st = new StringTokenizer(br.readLine());
+            int x = Integer.parseInt(st.nextToken());
+            int y = Integer.parseInt(st.nextToken());
 
             for(int j = x; j < x + 10; j++) {
                 for(int k = y; k < y + 10; k++) {
@@ -27,6 +33,7 @@ public class Main {
                 }
             }
         }
-        System.out.println(area);
+        sb.append(area);
+        System.out.println(sb);
     }
 }
